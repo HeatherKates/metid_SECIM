@@ -40,7 +40,7 @@ metIdentify_mass_dataset <-
            rt.match.tol = 30,
            polarity = c("positive", "negative"),
            ce = "all",
-           column = c("hilic", "rp"),
+           column = c("hilic", "rp","rp_custom"),
            ms1.match.weight = 0.25,
            rt.match.weight = 0.25,
            ms2.match.weight = 0.5,
