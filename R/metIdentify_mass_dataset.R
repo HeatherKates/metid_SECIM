@@ -144,6 +144,11 @@ metIdentify_mass_dataset <-
       adduct.table <- rp.pos
     }
     
+    if (polarity == "positive" & column == "rp_custom") {
+      data("rp.pos.custom", envir = environment())
+      adduct.table <- rp.pos.custom
+    }
+    
     if (polarity == "negative" & column == "hilic") {
       data("hilic.neg", envir = environment())
       adduct.table <- hilic.neg
@@ -152,6 +157,11 @@ metIdentify_mass_dataset <-
     if (polarity == "negative" & column == "rp") {
       data("rp.neg", envir = environment())
       adduct.table <- rp.neg
+    }
+    
+    if (polarity == "negative" & column == "rp_custom") {
+      data("rp.neg.custom", envir = environment())
+      adduct.table <- rp.neg.custom
     }
     
     if (length(object@ms2_data) == 0) {
