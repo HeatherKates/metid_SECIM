@@ -23,7 +23,7 @@ mzIdentify_mass_dataset2 <-
            ms1.match.ppm = 25,
            rt.match.tol = 30,
            polarity = c("positive", "negative"),
-           column = c("hilic", "rp"),
+           column = c("hilic", "rp","rp_custom"),
            candidate.num = 3,
            database,
            threads = 3) {
@@ -57,6 +57,11 @@ mzIdentify_mass_dataset2 <-
       adduct.table <- rp.pos
     }
     
+    if (polarity == "positive" & column == "rp_custom") {
+      data("rp.pos", envir = environment())
+      adduct.table <- rp.pos.custom
+    }
+    
     if (polarity == "negative" & column == "hilic") {
       data("hilic.neg", envir = environment())
       adduct.table <- hilic.neg
@@ -65,6 +70,11 @@ mzIdentify_mass_dataset2 <-
     if (polarity == "negative" & column == "rp") {
       data("rp.neg", envir = environment())
       adduct.table <- rp.neg
+    }
+    
+    if (polarity == "negative" & column == "rp_custom") {
+      data("rp.neg", envir = environment())
+      adduct.table <- rp.neg.custom
     }
     
     ms1.data <-
@@ -381,7 +391,7 @@ mzIdentify_mass_dataset <-
            ms1.match.ppm = 25,
            rt.match.tol = 30,
            polarity = c("positive", "negative"),
-           column = c("hilic", "rp"),
+           column = c("hilic", "rp","rp_custom"),
            candidate.num = 3,
            database,
            threads = 3) {
@@ -415,6 +425,11 @@ mzIdentify_mass_dataset <-
       adduct.table <- rp.pos
     }
     
+     if (polarity == "positive" & column == "rp_custom") {
+      data("rp.pos", envir = environment())
+      adduct.table <- rp.pos.custom
+    }
+    
     if (polarity == "negative" & column == "hilic") {
       data("hilic.neg", envir = environment())
       adduct.table <- hilic.neg
@@ -423,6 +438,11 @@ mzIdentify_mass_dataset <-
     if (polarity == "negative" & column == "rp") {
       data("rp.neg", envir = environment())
       adduct.table <- rp.neg
+    }
+    
+      if (polarity == "negative" & column == "rp_custom") {
+      data("rp.neg", envir = environment())
+      adduct.table <- rp.neg.custom
     }
     
     ms1.data <-
